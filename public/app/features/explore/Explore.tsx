@@ -58,6 +58,43 @@ const getStyles = (theme: GrafanaTheme2) => {
       display: unset !important;
       padding: ${theme.spacing(1)};
     `,
+    // TODO: I assume I also need to change Table.story.tsx
+    panelContainer: css`
+      background-color: #e84d3c;
+      //background-color: ${theme.components.panel.background}; // TODO: enable this one and delete  previous line!!!
+      border: ${theme.components.panel.borderColor};
+      position: relative;
+      border-radius: 3px;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 0;
+      box-shadow: none;
+
+      // TODO: not sure whether this still works => see PanelChrome.tsx
+      &--transparent {
+        background-color: transparent;
+        border: 1px solid transparent;
+      }
+
+      &:hover {
+        // TODO: continue here => should I transfer this as well?
+        .panel-menu-toggle {
+          visibility: visible;
+          transition: opacity 0.1s ease-in 0.2s;
+          opacity: 1;
+        }
+      }
+
+      &--is-editing {
+        height: auto;
+      }
+
+      &--absolute {
+        position: absolute;
+      }
+    `,
   };
 };
 
